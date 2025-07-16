@@ -1,0 +1,27 @@
+        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Tienda de Libros</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Libreria
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url "apptienda:todos_los_productos" %}">Todos</a></li>
+                                {% for c in categorias %}
+                                <li>
+                                    <a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.nombre|title }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>

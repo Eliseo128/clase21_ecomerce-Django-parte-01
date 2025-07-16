@@ -1,0 +1,54 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block titulo %}Tienda de libros{% endblock %}
+{% block contenido %}
+
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-3">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="h1 fw-bold">Buscar, leer, comprar, reseñar</h1>
+        <p class="lead text-muted">Algo breve y conciso sobre la colección a continuación: su contenido, el creador, etc. Que sea breve y conciso, pero no demasiado corto para que la gente no lo pase por alto.</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Crear una cuenta</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="pb-3 h5">Todos los Libros</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+        {% for producto in productos %}
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="img-fluid" alt="Responsive image" src="{{ producto.imagen.url }}">
+            <div class="card-body">
+              <p class="card-text">
+                <a class="text-dark text-decoration-none" href="{{ producto.get_absolute_url }}">{{ producto.titulo }}</a>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                
+                <small class="text-muted">9min read</small>
+                <a href="https://github.com/veryacademy/django-ecommerce-project.git">Github</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+{% endblock %}
